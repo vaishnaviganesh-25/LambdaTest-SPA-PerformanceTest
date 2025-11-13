@@ -1,21 +1,22 @@
-version: 0.2
-runson: ubuntu
-project: "DemoQA-HyperExecute"
+version: 0.1
+runson: linux
 globalTimeout: 30
 
-env:
-  LT_USERNAME: vaishnavi.gqburst
-  LT_ACCESS_KEY: LT_LkyjoZnm5oTeni84sH1aZjFeFofPp84wNhfQw3rykXTwxnG
-  PAGE: https://demoqa.com/
+matrix:
+  os: [linux]
 
-pre:
-  - npm install
+task:
+  name: demoqa-lighthouse-test
+  env:
+    LT_USERNAME: vaishnavi.gqburst
+    LT_ACCESS_KEY: LT_LkyjoZnm5oTeni84sH1aZjFeFofPp84wNhfQw3rykXTwxnG
+    PAGE: https://demoqa.com/
 
-testSuites:
-  default:
-    command:
-      - node selenium-test.js
-      - node main-runner.js
-
-post:
-  - cat lighthouse/combined-report.json
+  commands:
+    - echo "🔧 Installing dependencies..."
+    - npm install
+    - echo "✅ Running Selenium tests..."
+    - node selenium-test.js
+    - node main-runner.js
+    - echo "📊 Displaying Lighthouse report..."
+    - cat lighthouse/combined-report.json

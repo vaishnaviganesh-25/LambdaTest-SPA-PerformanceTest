@@ -1,5 +1,6 @@
 version: 0.2
 runson: ubuntu
+project: DemoQA-HyperExecute 
 globalTimeout: 30
 
 env:

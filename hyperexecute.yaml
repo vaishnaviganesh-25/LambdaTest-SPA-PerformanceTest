@@ -1,4 +1,4 @@
-version: 0.1
+version: 0.2
 runson: linux
 globalTimeout: 30
 
@@ -10,7 +10,7 @@ task:
   env:
     LT_USERNAME: vaishnavi.gqburst
     LT_ACCESS_KEY: LT_LkyjoZnm5oTeni84sH1aZjFeFofPp84wNhfQw3rykXTwxnG
-    PAGE: https://demoqa.com/
+    PAGE: https://demoapp-ft6dwhwtc-dev-pranavs-projects.vercel.app/
 
   commands:
     - echo "🔧 Installing dependencies..."

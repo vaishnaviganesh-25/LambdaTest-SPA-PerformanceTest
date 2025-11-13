@@ -2,21 +2,22 @@ version: 0.1
 runson: linux
 globalTimeout: 30
 
+env:
+  LT_USERNAME: "vaishnavi.gqburst"
+  LT_ACCESS_KEY: "LT_LkyjoZnm5oTeni84sH1aZjFeFofPp84wNhfQw3rykXTwxnG"
+  PAGE: "https://demoqa.com/"
+
+pre:
+  - npm install
+
 matrix:
   os: [linux]
 
 task:
-  name: demoqa-lighthouse-test
-  env:
-    LT_USERNAME: vaishnavi.gqburst
-    LT_ACCESS_KEY: LT_LkyjoZnm5oTeni84sH1aZjFeFofPp84wNhfQw3rykXTwxnG
-    PAGE: https://demoapp-ft6dwhwtc-dev-pranavs-projects.vercel.app/
-
+  name: demoqa-tests
   commands:
-    - echo "🔧 Installing dependencies..."
-    - npm install
-    - echo "✅ Running Selenium tests..."
     - node selenium-test.js
     - node main-runner.js
-    - echo "📊 Displaying Lighthouse report..."
-    - cat lighthouse/combined-report.json
+
+post:
+  - cat lighthouse/combined-report.json

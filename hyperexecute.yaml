@@ -6,6 +6,7 @@ pre:
 testSuites:
   default:
     command:
+      - PAGE=https://demoqa.com/ node selenium-test.js
       - PAGE=https://demoqa.com/ node main-runner.js
 post:
   - cat lighthouse/combined-report.json

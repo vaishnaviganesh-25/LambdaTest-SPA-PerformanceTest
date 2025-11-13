@@ -1,12 +1,21 @@
 version: 0.2
 runson: ubuntu
 globalTimeout: 30
+
+env:
+  LT_USERNAME: vaishnavi.gqburst
+  LT_ACCESS_KEY: LT_LkyjoZnm5oTeni84sH1aZjFeFofPp84wNhfQw3rykXTwxnG
+  # Add any other env vars your test scripts might need
+  PAGE: https://demoqa.com/
+
 pre:
   - npm install
+
 testSuites:
   default:
     command:
-      - PAGE=https://demoqa.com/ node selenium-test.js
-      - PAGE=https://demoqa.com/ node main-runner.js
+      - node selenium-test.js
+      - node main-runner.js
+
 post:
   - cat lighthouse/combined-report.json

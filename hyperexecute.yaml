@@ -1,12 +1,11 @@
 version: 0.2
 runson: ubuntu
-project: DemoQA-HyperExecute 
+project: "DemoQA-HyperExecute"
 globalTimeout: 30
 
 env:
   LT_USERNAME: vaishnavi.gqburst
   LT_ACCESS_KEY: LT_LkyjoZnm5oTeni84sH1aZjFeFofPp84wNhfQw3rykXTwxnG
-  # Add any other env vars your test scripts might need
   PAGE: https://demoqa.com/
 
 pre:

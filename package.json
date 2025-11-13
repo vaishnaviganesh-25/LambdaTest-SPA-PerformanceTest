@@ -1,0 +1,19 @@
+{
+  "name": "lighthouse-lambdatest-perf",
+  "version": "1.0.0",
+  "main": "test-login-lambdatest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "## Usage",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "selenium-webdriver": "^4.38.0"
+  },
+  "devDependencies": {
+    "lighthouse": "^12.8.2"
+  }
+}

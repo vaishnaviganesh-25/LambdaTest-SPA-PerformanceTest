@@ -1,0 +1,11 @@
+version: 0.2
+runson: ubuntu
+globalTimeout: 30
+pre:
+  - npm install
+testSuites:
+  default:
+    command:
+      - PAGE=${PAGE} node main-runner.js
+post:
+  - cat lighthouse/combined-report.json

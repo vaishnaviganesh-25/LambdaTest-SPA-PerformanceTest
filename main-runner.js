@@ -1,18 +1,42 @@
-require('dotenv').config();
-const { execSync } = require('child_process');
+import dotenv from "dotenv";
+dotenv.config();
+console.log("DEBUG process.env.PAGE =", process.env.PAGE);
 
-const page = process.env.PAGE || "login"; // Default to login if not set
+import { runLoginTest } from "./test-login-lambdatest.js";
+import { runHomeTest } from "./test-home-lambdatest.js";
+import { runLighthouse } from "./lighthouse-runner.js";
+import { mergeReports } from "./merge-reports.js";
 
-if (page === "login") {
-  execSync('node test-login-lambdatest.js', { stdio: 'inherit' });
-  execSync('npx lighthouse https://demoqa.com/login --output json --output-path=lighthouse/lh-report-login.json', { stdio: 'inherit' });
-  execSync('node merge-reports.js', { stdio: 'inherit' });
-} else if (page === "home") {
-  execSync('node test-home-lambdatest.js', { stdio: 'inherit' });
-  execSync('npx lighthouse https://demoqa.com/ --output json --output-path=lighthouse/lh-report-home.json', { stdio: 'inherit' });
-  // You may want a merge-reports-home.js or make merge-reports.js smart
-  execSync('node merge-reports.js', { stdio: 'inherit' });
-} else {
-  console.error('Unknown PAGE value: ' + page);
-  process.exit(1);
+const PAGE = process.env.PAGE;
+
+console.log(`🚀 Starting Execution for PAGE=${PAGE}`);
+
+async function main() {
+    let seleniumResult = null;
+    let lighthouseJson = null;
+
+    // -----------------------------
+    // 1️⃣ Run Selenium for this page
+    // -----------------------------
+    if (PAGE === "login") {
+        seleniumResult = await runLoginTest();
+    } else if (PAGE === "home") {
+        seleniumResult = await runHomeTest();
+    } else {
+        console.log("❌ Invalid PAGE value. Must be login or home.");
+        return;
+    }
+
+    // -------------------------------------
+    // 2️⃣ Run Lighthouse for this same page
+    // -------------------------------------
+    lighthouseJson = await runLighthouse(PAGE);
+
+    // -----------------------------------------------------
+    // 3️⃣ Merge Selenium + Lighthouse into final JSON report
+    // -----------------------------------------------------
+    console.log(`🔄 Merging reports for: ${PAGE}`);
+    mergeReports(PAGE, seleniumResult, lighthouseJson);
 }
+
+main();

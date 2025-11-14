@@ -10,7 +10,7 @@ export async function runLoginTest() {
         .build();
 
     try {
-        await driver.get("https://demoapp-ft6dwhwtc-dev-pranavs-projects.vercel.app/login");
+        await driver.get("https://demoapp-ashen.vercel.app/login");
 
         // 🔥 Correct selectors based on placeholder
         await driver.findElement(By.css('input[placeholder="Username"]')).sendKeys("admin");

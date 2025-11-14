@@ -7,9 +7,9 @@ export async function runLighthouse(page) {
 
     let url = "";
     if (page === "login") {
-        url = "https://demoapp-ft6dwhwtc-dev-pranavs-projects.vercel.app/login";
+        url = "https://demoapp-ashen.vercel.app/login/";
     } else if (page === "home") {
-        url = "https://demoapp-ft6dwhwtc-dev-pranavs-projects.vercel.app/";
+        url = "https://demoapp-ashen.vercel.app/";
     } else {
         console.log("❌ Invalid PAGE for Lighthouse");
         return null;

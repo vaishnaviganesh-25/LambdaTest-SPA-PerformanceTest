@@ -1,0 +1,158 @@
+version: "0.1"
+user: vaishnavi.gqburst
+key: '********'
+testSuites: [node main-runner.js, python generate_report.py]
+pre: [sudo apt-get update, sudo apt-get install -y wget gnupg unzip, 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb', sudo apt install -y ./google-chrome-stable_current_amd64.deb, export CHROME_PATH=/usr/bin/google-chrome, npm install]
+preDirectives:
+    commands: [sudo apt-get update, sudo apt-get install -y wget gnupg unzip, 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb', sudo apt install -y ./google-chrome-stable_current_amd64.deb, export CHROME_PATH=/usr/bin/google-chrome, npm install]
+    maxRetries: 0
+    shell: ""
+    workingDirectory: ""
+post: [echo "✅ All tests finished", ls -la results || echo "No results directory found"]
+postDirectives:
+    commands: [echo "✅ All tests finished", ls -la results || echo "No results directory found"]
+    shell: ""
+    workingDirectory: ""
+env:
+    CACHE_DIR: ./cache
+    CHROME_PATH: /usr/bin/google-chrome
+    PAGE: home
+    RESULTS_DIR: ./results
+runson: linux
+tunnelOpts:
+    testsPerTunnel: 10
+jobID: e37c30ad-84b8-442f-8b3a-e545904018b6
+mergeArtifacts: true
+uploadArtefacts:
+    - name: html-reports
+      path:
+        - ./*.html
+      email:
+        to: []
+        metaInfo: []
+        linkValidity: 0
+codeDirectory: lighthouse-lambdatest-perf
+framework:
+    name: ""
+    flags: []
+    discoveryFlags: []
+    discoveryMode: ""
+    discoveryType: ""
+    runnerFlags: []
+    workingDirectory: ""
+    isTestNGXMLSuite: false
+    defaultReports: false
+    args:
+        appPath: ""
+        testSuitePath: ""
+        xcTestPlanPath: ""
+        shards:
+            mappings: []
+        filters:
+            attributes: []
+        devices: []
+        deviceSelectionStrategy: ""
+        appId: ""
+        testSuiteAppId: ""
+        xcTestPlanId: ""
+        skipXMLOnRun: false
+        skipInstall: false
+        disableReleaseDevice: false
+        platformName: ""
+        isRealMobile: null
+        avoidAppLaunch: false
+        queueTimeout: 0
+        uninstallPreviousBuild: false
+        language: ""
+        locale: ""
+        preservedDevice: false
+        fixedIP: ""
+        minorOsVersion: false
+        playwrightRD: false
+        mobileDC: null
+        skipUninstallPreviousBuild: false
+        isVirtualDevice: false
+        mitmProxy: false
+        networkHar: false
+        artifacts: false
+        otherApps: []
+        customData: {}
+        smartUI: null
+        darkMode: false
+        testRemarks: false
+        autoGrantPermissions: false
+        networkLogsOptions:
+            captureContent: false
+            excludeHosts: []
+            includeHosts: []
+        enableResultBundle: false
+        enableBluetooth: false
+    additional_args: null
+    licenseKey: ""
+    userdefinediscovery: false
+    toscaArgs: null
+    version: ""
+    downloadURL: ""
+    baseCommand: ""
+cypress: false
+betaFeature:
+    setPartiallyCompletedAsCompleted: false
+triggerSource: CLI
+combineTasksInMatrixMode: false
+captureScreenRecordingForScenarios: false
+maxRetriesPreSteps: 0
+triggerMode: false
+sourcePayload:
+    verifySSL: true
+collectLocalGitData: true
+dynamicAllocation: false
+appium: null
+platformConfig: null
+differentialUpload:
+    enabled: false
+    ttlHours: null
+    forcedDisabled: false
+project:
+    id: 01K9S9ZFRSGC3JZQPB81BE5QHF
+    name: LambdaTest Default Project
+    type: custom
+meta: {}
+alwaysRunPostSteps: false
+errorCategorizedOnFailureOnly: false
+testDiscoveryResultV3: []
+storageType: ""
+localHTTPProxy: ""
+regionConfig:
+    vm: []
+    storage:
+        region: ""
+        enabled: false
+        name: ""
+        platform: azure
+waitForArtefactsUpload: false
+unzipPayload: false
+projectpath: ""
+accessibilityJob: false
+globalPre:
+    mode: ""
+    commands: []
+    maxRetries: 0
+    shell: ""
+    workingDirectory: ""
+    completed: false
+    runson: ""
+    cache: false
+    yamlPath: null
+    type: ""
+    location: ""
+globalPost:
+    mode: ""
+    commands: []
+    shell: ""
+    workingDirectory: ""
+    completed: false
+    runson: ""
+slackChannel: ""
+whiteLabelProductTag: ""
+sprofilePath: ""
+ltOptions: {}

@@ -20,6 +20,7 @@ pre:
 
 testSuites:
   - node main-runner.js
+  - python generate_report.py
 
 post:
   - echo "✅ All tests finished"
@@ -28,9 +29,9 @@ post:
 mergeArtifacts: true
 
 uploadArtefacts:
-  - name: lighthouse-reports
+  - name: html-reports
     path:
-      - lighthouse/**
+      - ./*.html
 
 
 

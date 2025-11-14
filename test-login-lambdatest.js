@@ -10,6 +10,11 @@ export async function runLoginTest() {
         .build();
 
     try {
+       /* await driver.get("https://neda-supernormal-domenica.ngrok-free.dev/");
+        await driver.findElement(By.css('button[type="Visit Site"]')).click();
+        await driver.get("https://neda-supernormal-domenica.ngrok-free.dev/");*/
+
+
         await driver.get("https://demoapp-ashen.vercel.app/login");
 
         // 🔥 Correct selectors based on placeholder

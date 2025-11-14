@@ -11,7 +11,10 @@ export async function runHomeTest() {
         .build();
 
     try {
-        await driver.get("https://demoapp-ashen.vercel.app/");
+       // await driver.get("https://neda-supernormal-domenica.ngrok-free.dev/");
+      //  await driver.findElement(By.xpath('button[contains(text(), 'Visit Site']')).click();
+      //  await driver.get("https://neda-supernormal-domenica.ngrok-free.dev/");
+           await driver.get("https://demoapp-ashen.vercel.app/");
 
             // 🔥 Correct selectors based on placeholder
             await driver.findElement(By.css('input[placeholder="Username"]')).sendKeys("admin");

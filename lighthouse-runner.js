@@ -19,7 +19,7 @@ export async function runLighthouse(page) {
     const options = {
         logLevel: "info",
         output: "json",
-        onlyCategories: ["performance"],
+        //onlyCategories: ["performance"],
         port: chrome.port
     };
 
